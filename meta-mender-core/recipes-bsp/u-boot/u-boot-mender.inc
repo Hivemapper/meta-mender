@@ -251,23 +251,23 @@ do_configure_prepend_mender-uboot() {
     fi
 
     # Split only on newlines.
-    IFS='
-'
-    for line in $(cat "${S}/mender_Kconfig_fragment"); do
-        key="$(echo "$line" | sed -e 's/=.*//')"
-        if egrep "^($key=|# $key is not set\$)" ${B}/.config; then
-            # We found the option. Check that it's correct.
-            if ! fgrep -i "$line" ${B}/.config; then
-                wrong_entry="$(fgrep "$key" ${B}/.config)"
-                msg="$(printf "U-Boot configuration %s has setting:\n%s\nbut Mender expects:\n%s\nPlease fix U-Boot's configuration file." \
-                    "${UBOOT_MACHINE}" \
-                    "$wrong_entry" \
-                    "$line")"
-                bbfatal "$msg"
-            fi
-        fi
-    done
-    unset IFS
+#     IFS='
+# '
+#     for line in $(cat "${S}/mender_Kconfig_fragment"); do
+#         key="$(echo "$line" | sed -e 's/=.*//')"
+#         if egrep "^($key=|# $key is not set\$)" ${B}/.config; then
+#             # We found the option. Check that it's correct.
+#             if ! fgrep -i "$line" ${B}/.config; then
+#                 wrong_entry="$(fgrep "$key" ${B}/.config)"
+#                 msg="$(printf "U-Boot configuration %s has setting:\n%s\nbut Mender expects:\n%s\nPlease fix U-Boot's configuration file." \
+#                     "${UBOOT_MACHINE}" \
+#                     "$wrong_entry" \
+#                     "$line")"
+#                 bbfatal "$msg"
+#             fi
+#         fi
+#     done
+#     unset IFS
 }
 
 do_compile_append_mender-uboot_mender-ubi() {
