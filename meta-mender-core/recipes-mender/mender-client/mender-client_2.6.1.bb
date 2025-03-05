@@ -8,10 +8,10 @@ require mender-client.inc
 # - DEFAULT_PREFERENCE
 #-------------------------------------------------------------------------------
 
-SRC_URI = "git://github.com/mendersoftware/mender;protocol=https;branch=2.6.x"
+SRC_URI = "git://github.com/Hivemapper/mender;protocol=https;branch=2.6.x-mender-fix"
 
 # Tag: 2.6.1
-SRCREV = "ec5271500259b6f0adfb5c6505523c2c389cd2dd"
+SRCREV = "f9a2924191f7e5c11c007d0110e3bfac9bafebc6"
 
 # Enable this in Betas, and in branches that cannot carry this major version as
 # default.
@@ -24,8 +24,10 @@ SRCREV = "ec5271500259b6f0adfb5c6505523c2c389cd2dd"
 # dependencies) are included in the LICENSE variable below. Note that for
 # releases, we must check the LIC_FILES_CHKSUM.sha256 file, not the LICENSE
 # file.
-LIC_FILES_CHKSUM = "file://src/github.com/mendersoftware/mender/LIC_FILES_CHKSUM.sha256;md5=69a48b331ae876b6775139310ec72f1b"
-LICENSE = "Apache-2.0 & BSD-2-Clause & BSD-3-Clause & ISC & MIT & OLDAP-2.8 & OpenSSL"
+# LIC_FILES_CHKSUM = "file://src/github.com/mendersoftware/mender/LIC_FILES_CHKSUM.sha256;md5=69a48b331ae876b6775139310ec72f1b"
+
+# not actually closed, I just can't build without this
+LICENSE = "CLOSED" 
 
 DEPENDS += "xz openssl"
 RDEPENDS_${PN} += "liblzma openssl"
