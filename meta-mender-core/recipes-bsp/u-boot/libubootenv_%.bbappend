@@ -21,8 +21,6 @@ do_compile[depends] += "u-boot:do_deploy"
 
 do_install_append_mender-uboot() {
     install -d -m 755 ${D}${sysconfdir}
-    install -d ${D}/data/u-boot
-
     cat > ${WORKDIR}/fw_env.config.2 <<EOF
 /dev/mmcblk1 0x2100000 0x80000
 /dev/mmcblk1 0x2180000 0x80000
